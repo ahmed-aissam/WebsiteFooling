@@ -1,0 +1,40 @@
+<body>
+  <h1>Your feedback is appreciated!</h1>
+  <ul id="commentList"></ul>
+  <form id="form">
+    <textarea name="commentInput" rows="5" cols="33"></textarea>
+    <input type="submit">
+  </form>
+</body>
+
+<script>
+  const form = document.querySelector("form")
+  const newComment = document.querySelector("[name='commentInput']")
+  const commentList = document.getElementById("commentList")
+  const savedComments = JSON.parse(localStorage.getItem("savedComments")) || []
+  let commentData = []
+
+  form.onsubmit = (event)=>{
+    event.preventDefault()
+    displayComments(newComment.value)
+    commentData.push(newComment.value)
+    localStorage.setItem("savedComments", JSON.stringify(commentData))
+    document.getElementById("form").reset()
+  }
+
+  savedComments.forEach(savedComment=>{
+    displayComments(savedComment)
+    commentData.push(savedComment)
+  }
+  )
+
+  function displayComments(comments) {
+    const li = document.createElement("li")
+    li.innerHTML = comments
+    commentList.appendChild(li)
+  }
+</script>
+<!--
+November 6 10:14 pm
+I got it working!!!
+-->
