@@ -1,2 +1,2 @@
 # WebsiteFooling
-Me toying around with a simple html/js website.
+Me experimenting with a journaling HTML/Javascript website.
